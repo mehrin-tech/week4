@@ -1,0 +1,318 @@
+<!-- <!-- //window.documnt
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>My Demo Page</title>
+</head>
+<body style="font-family: Arial, sans-serif; padding: 20px;">
+
+  <h1 id="main-heading">Welcome to My Page</h1>
+  <p>This is a simple example using <code>window.document</code>.</p>
+
+  <button onclick="changePage()">Click Me</button>
+
+  <script>
+    // Access and log the page title
+    console.log(window.document.title); // "My Demo Page"
+
+    // Function to change DOM using window.document
+    function changePage() {
+      // Change background color of the body
+      window.document.body.style.backgroundColor = "yellow";
+
+      // Change text of the heading
+      window.document.getElementById("main-heading").textContent = "You Clicked the Button!";
+
+      // Add a new paragraph
+      const newPara = window.document.createElement("p");
+      newPara.textContent = "This paragraph was added using window.document.";
+      window.document.body.appendChild(newPara);
+    }
+  </script>
+</body>
+</html> 
+
+//WINDOW>LOCATION
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>window.location Example</title>
+  <style>
+    body { font-family: Arial; padding: 20px; }
+    button { margin: 10px 0; padding: 10px 15px; }
+    pre { background-color: #f0f0f0; padding: 10px; border-radius: 5px; }
+  </style>
+</head>
+<body>
+
+  <h1>window.location Example</h1>
+
+  <button onclick="showLocationDetails()">Show Location Details</button>
+  <button onclick="goToFB()">Go to Google</button>
+  <button onclick="reloadPage()">Reload Page</button>
+
+  <h3>Output:</h3>
+  <pre id="output">Click "Show Location Details" to see the current URL info.</pre>
+
+  <script>
+    //full details of location
+    function showLocationDetails() {
+      const output = document.getElementById("output");
+      output.textContent =
+        `href: ${window.location.href}\n` +
+        `protocol: ${window.location.protocol}\n` +
+        `host: ${window.location.host}\n` +
+        `hostname: ${window.location.hostname}\n` +
+        `port: ${window.location.port || "default"}\n` +
+        `pathname: ${window.location.pathname}\n` +
+        `search: ${window.location.search || "none"}\n` +
+        `hash: ${window.location.hash || "none"}`;
+    }
+
+    function goToFB() {
+      window.location.href = "https://www.facebook.com/"; // Redirects to fb
+    }
+
+    function reloadPage() {
+      window.location.reload(); // Reloads the current page
+    }
+  </script>
+
+</body>
+</html>--
+->window.navigator    
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Navigator Object Demo</title>
+  <style>
+    body { font-family: Arial; padding: 20px; }
+    pre { background-color: #eee; padding: 10px; border-radius: 5px; }
+  </style>
+</head>
+<body>
+
+  <h2>window.navigator Demo</h2>
+  <button onclick="displayNavigatorInfo()">Show Browser Info</button>
+  
+  <pre id="info">Click the button to see info...</pre>
+
+  <script>
+    function displayNavigatorInfo() {
+      const nav = window.navigator;
+      const info = `                                            
+ User Agent     : ${nav.userAgent}
+Language       : ${nav.language}
+Platform       : ${nav.platform}
+Online Status  : ${nav.onLine}
+Cookies Enabled: ${nav.cookieEnabled}
+App Name       : ${nav.appName}
+Product        : ${nav.product}
+      `;
+      document.getElementById("info").textContent = info;
+    }
+  </script>
+
+</body>
+</html>-->
+<!-- output:User Agent     : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36 Edg/137.0.0.0
+Language       : en-US
+Platform       : Win32
+Online Status  : true
+Cookies Enabled: true
+App Name       : Netscape
+Product        : Gecko --
+
+<----window.screen------->
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+  console.log("Screen Width:", window.screen.width);   //screen width
+  console.log("Screen Height:", window.screen.height);   //screen heigth
+</script>
+<script>
+  // Set the name
+  window.name = "Mehrin's Tab";
+                                       
+  // Access it
+  console.log("Window Name:", window.name);
+</script>
+
+
+</body>
+</html> -->
+6)window.localStorage
+<!-- <!DOCTYPE html>
+<html>
+<head>
+  <title>localStorage Example</title>
+</head>
+<body>
+
+  <h2>localStorage Example</h2>
+  <input type="text" id="nameInput" placeholder="Enter your name">
+  <button onclick="saveName()">Save Name</button>
+  <button onclick="showName()">Show Stored Name</button>
+  <p id="output"></p>
+
+  <script>
+    function saveName() {
+      const name = document.getElementById("nameInput").value;
+      localStorage.setItem("username", name);
+      alert("Name saved!");
+    }
+
+    function showName() {
+      const storedName = localStorage.getItem("username");
+      document.getElementById("output").textContent = "Stored Name: " + (storedName || "No name found");
+    }
+  </script>
+
+</body>
+</html> -->
+<!-- <!DOCTYPE html>
+<html>
+<head>
+  <title>sessionStorage Example</title>
+</head>
+<body>
+
+  <h2>sessionStorage Demo</h2>
+  <button onclick="storeToken()">Store Token</button>
+  <button onclick="showToken()">Show Token</button>
+  <button onclick="removeToken()">Remove Token</button>
+
+  <p id="output"></p>
+
+  <script>
+    function storeToken() {
+      sessionStorage.setItem("authToken", "abc123xyz");
+      alert("Token stored in session!");
+    }
+
+    function showToken() {
+      const token = sessionStorage.getItem("authToken");
+      document.getElementById("output").textContent = "Stored Token: " + (token || "No token found");
+    }
+
+    function removeToken() {
+      sessionStorage.removeItem("authToken");
+      document.getElementById("output").textContent = "Token removed.";
+    }
+  </script>
+
+</body>
+</html> -->
+setTimeout
+<!-- <script>
+  function greetUser() {
+    alert("Hello after 3 seconds!");
+  }
+
+  setTimeout(greetUser, 3000); // Runs greetUser after 3 seconds
+</script> -->
+ setinterval
+ <!-- <script>
+  function showTime() {
+    const now = new Date().toLocaleTimeString();
+    console.log("Current Time:", now);
+  }
+
+  setInterval(showTime, 1000); // Logs the time every 1 second
+</script> --
+      
+<!DOCTYPE html>
+<html>
+<head>
+  <title>clearTimeout Example</title>
+</head>
+<body>
+  <h2>clearTimeout Demo</h2>
+  <button onclick="startTimer()">Start</button>
+  <button onclick="cancelTimer()">Cancel</button>
+
+  <script>
+    let timeoutID;
+
+    function startTimer() {
+      timeoutID = setTimeout(() => {
+        alert("You waited 5 seconds!");
+      }, 5000);
+    }
+
+    function cancelTimer() {
+      clearTimeout(timeoutID);
+      alert("Timeout cancelled.");
+    }
+  </script>
+</body>
+</html>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>clearInterval Example</title>
+</head>
+<body>
+  <h2>clearInterval Demo</h2>
+  <p id="count">Count: 0</p>
+  <button onclick="startCounting()">Start</button>
+  <button onclick="stopCounting()">Stop</button>
+
+  <script>
+    let intervalID;
+    let count = 0;
+
+    function startCounting() {
+      intervalID = setInterval(() => {
+        count++;
+        document.getElementById("count").textContent = "Count: " + count;
+      }, 1000);
+    }
+
+    function stopCounting() {
+      clearInterval(intervalID);
+    }
+  </script>
+  ---OPEN--
+  <script>
+  function openGoogle() {
+    window.open("https://www.google.com", "_blank"); // Opens Google in a new tab
+  }
+</script> --
+---CLOSE--
+<button onclick="closeWindow()">Close This Window</button>
+
+<script>
+  function closeWindow() {
+    window.close(); // Works only if this window was opened via script
+  }
+</script>
+---SCROLL
+<button onclick="scrollToBottom()">Scroll to Bottom</button>
+
+<div style="height: 2000px; background: linear-gradient(#fff, #ddd);"></div>
+
+<script>
+  function scrollToBottom() {
+    window.scrollTo(0, document.body.scrollHeight);
+  }
+</script>
+---ADDEVENT LISTNER 
+<script>
+  window.addEventListener("resize", function () {
+    console.log("Window resized! Width: " + window.innerWidth);
+  });
+</script>
+
+
+</body>
+</html>-->
